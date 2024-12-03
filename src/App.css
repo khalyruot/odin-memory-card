@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#container{
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  height: 1000px;
+}
+
+#top{
+  background-color: aqua;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#body{
+  background-color: beige;
+}
