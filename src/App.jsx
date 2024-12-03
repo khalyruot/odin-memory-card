@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import FetchData from './FetchData'
 import './App.css'
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
             <h2>Top Score</h2>
           </div>
         </div>
-        <div id="body">Body</div>
+        <div id="body"><FetchData /></div>
       </div>
     </>
   )
