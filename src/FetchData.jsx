@@ -14,8 +14,6 @@ const FetchData = () => {
             const pokemonData = await Promise.all(promisesArray);
 
             setDataImage(pokemonData);
-            
-           
         
           }
           catch(error){
@@ -30,7 +28,6 @@ const FetchData = () => {
   function displayRandomDataImage(dataImage){
     let oddImageInsideFunc = dataImage.filter((_, index) => index % 2 !== 0);
     oddDataImage = oddImageInsideFunc;
-    
   }
   displayRandomDataImage(dataImage);
   
