@@ -34,4 +34,4 @@ function shuffleRandomPokemon(pokemonIds){
     pokemonIds = getRandomPokemon();
 }
 
-export {getRandomPokemon, shuffleRandomPokemon};
+export {getPokemon, getRandomPokemon, shuffleRandomPokemon};
