@@ -25,13 +25,23 @@ function getRandomPokemon(){
         pokemonIds.add(Math.floor(Math.random() * total_Pokemon) + 1);
     }
 
-    console.log(pokemonIds);
     return Array.from(pokemonIds);
 
 }
 
-function shuffleRandomPokemon(pokemonIds){
-    pokemonIds = getRandomPokemon();
+function shuffleRandomPokemon(pokemonList){
+    const shuffledRandomPokemons = [...pokemonList];
+    for(let i = shuffledRandomPokemons.length-1; i>0; i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [shuffledRandomPokemons[i], shuffledRandomPokemons[j]]=[
+            shuffledRandomPokemons[j],
+            shuffledRandomPokemons[i]
+        ];
+    }
+    
+    console.log(shuffledRandomPokemons);
+
+    return shuffledRandomPokemons;
 }
 
 export {getPokemon, getRandomPokemon, shuffleRandomPokemon};

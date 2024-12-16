@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import FetchData from './FetchData'
-import { getPokemon, getRandomPokemon } from './FetchDataJavascript'
+import { getPokemon, getRandomPokemon, shuffleRandomPokemon } from './FetchDataJavascript'
 import './App.css'
 
 function App() {
@@ -18,7 +18,8 @@ function App() {
     fetchData();
   }, []);
 
-  getRandomPokemon();
+  let randomPokemons = getRandomPokemon();
+  shuffleRandomPokemon(randomPokemons);
 
   return (
     <>
