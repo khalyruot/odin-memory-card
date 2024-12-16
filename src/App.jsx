@@ -4,22 +4,27 @@ import viteLogo from '/vite.svg'
 import FetchData from './FetchData'
 import { getPokemon, getRandomPokemon, shuffleRandomPokemon } from './FetchDataJavascript'
 import './App.css'
+import PokemonCard from './Pokemon_Card'
 
 function App() {
 
-  const [pokemonData, setPokemonData] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   useEffect(()=>{
     const fetchData = async () => {
       const pokemons = await getPokemon();
-      setPokemonData(pokemons);
-
+      setPokemonList(pokemons);
     };
     fetchData();
   }, []);
 
-  let randomPokemons = getRandomPokemon();
-  shuffleRandomPokemon(randomPokemons);
+
+  const handleClick = event => {
+    console.log("Hey Click");
+  }
+
 
   return (
     <>
@@ -31,7 +36,7 @@ function App() {
             <h2>Top Score</h2>
           </div>
         </div>
-        <div id="body"><FetchData /></div>
+        <div id="body"><PokemonCard  onClick={()=> handleClick(pokemon.id)} /></div>
       </div>
     </>
   )
