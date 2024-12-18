@@ -3,7 +3,7 @@ async function getPokemon(){
         const pokemonId = getRandomPokemon();
         const pokemonPromise = pokemonId.map(async (pokemonId) =>{
             const response = await fetch(
-                `https://pokeapi.co/api/v2/pokemon/?limit=${pokemonId}`
+                `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
             );
             return response.json();
         })
