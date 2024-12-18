@@ -20,8 +20,7 @@ function App() {
     fetchData();
   }, []);
   
- //pokemonList is define
- console.log(pokemonList);
+  console.log(pokemonList);
 
   const handleClick = (pokemonId) => {
     setPokemonList(prevList=>{
@@ -48,17 +47,16 @@ function App() {
  
 
   const pokemonCards = pokemonList.map((pokemon)=>{
-    return 
-    <>
+    return (
       <Pokemon_Card
-       key={id} 
+       key={pokemon.id} 
        className = "card"
-       src ={image}
+       src ={pokemon.image}
        alt = "Khaly"
        onClick={handleClick}/>
-    </>
-  }
-  );
+    )
+      
+  });
 
 
   return (
