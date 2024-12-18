@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import FetchData from './FetchData'
 import { getPokemon, getRandomPokemon, shuffleRandomPokemon } from './FetchDataJavascript'
 import './App.css'
-import PokemonCard from './Pokemon_Card'
+import Pokemon_Card from './Pokemon_Card'
 
 function App() {
 
@@ -50,7 +50,12 @@ function App() {
   const pokemonCards = pokemonList.map((pokemon)=>{
     return 
     <>
-      <h1>Hello World</h1>
+      <Pokemon_Card
+       key={id} 
+       className = "card"
+       src ={image}
+       alt = "Khaly"
+       onClick={handleClick}/>
     </>
   }
   );
