@@ -40,8 +40,18 @@ function App() {
       }
      
     })
-    console.log("Hey Click");
+    
   }
+
+  console.log(pokemonList);
+
+  const pokemonCards = pokemonList.map((pokemon)=>{
+    return 
+    <>
+      <h1>Hello World</h1>
+    </>
+  }
+  );
 
 
   return (
@@ -50,11 +60,11 @@ function App() {
         <div id="top">
           <div><h1>Memory Game</h1></div>
           <div>
-            <h2>Score</h2>
+            <h2>Score:</h2>
             <h2>Top Score</h2>
           </div>
         </div>
-        <div id="body"><PokemonCard  onClick={()=> handleClick(pokemon.id)} /></div>
+        <div id="body">{pokemonCards}</div>
       </div>
     </>
   )

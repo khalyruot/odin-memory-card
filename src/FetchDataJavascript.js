@@ -1,13 +1,23 @@
 async function getPokemon(){
     try{
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=24');
-        const data = await response.json();
-        let results = data.results;
+        const pokemonId = getRandomPokemon();
+        const pokemonPromise = pokemonId.map(async (pokemonId) =>{
+            const response = await fetch(
+                `https://pokeapi.co/api/v2/pokemon/?limit=${pokemonId}`
+            );
+            return response.json();
+        })
+       
+        let randomPokemon = await Promise.all(pokemonPromise);
 
-        let promisesArray = results.map(result=>fetch(result.url).then(res=>res.json()));
-        const pokemonData = await Promise.all(promisesArray);
-        return pokemonData;
-
+        return randomPokemon.map((pokemon)=>{
+            return{
+                id: pokemon.id,
+                name: pokemon.name,
+                image: pokemon.sprites.font_default,
+                isClicked: false,  
+            };
+        });
     }
     catch(error){
         console.log("Error Fetching Data: ", error);
@@ -24,6 +34,8 @@ function getRandomPokemon(){
     while(pokemonIds.size < total_Pokemon_needed){
         pokemonIds.add(Math.floor(Math.random() * total_Pokemon) + 1);
     }
+
+    console.log(pokemonIds);
 
     return Array.from(pokemonIds);
 
