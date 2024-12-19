@@ -52,7 +52,7 @@ function App() {
        key={pokemon.id} 
        className = "card"
        src ={pokemon.image}
-       alt = "Khaly"
+       alt = "Pokemon Name"
        onClick={handleClick}/>
     )
       
