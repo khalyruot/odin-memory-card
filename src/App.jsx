@@ -54,10 +54,10 @@ function App() {
     return (
       <Pokemon_Card
        key={pokemon.id} 
-       className = "card"
+       name = {pokemon.name}
        src ={pokemon.image}
        alt = "Pokemon Name"
-       onClick={handleClick}/>
+       onClick={()=>handleClick(pokemon.id)}/>
     )
     
   });
