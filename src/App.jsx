@@ -20,7 +20,7 @@ function App() {
     fetchData();
   }, []);
   
-  console.log(pokemonList);
+  
 
   const handleClick = (pokemonId) => {
     setPokemonList(prevList=>{
@@ -44,7 +44,7 @@ function App() {
     
   }
 
- 
+  console.log(pokemonList);
 
   const pokemonCards = pokemonList.map((pokemon)=>{
     return (
@@ -58,6 +58,7 @@ function App() {
       
   });
 
+  console.log(pokemonCards);
 
   return (
     <>
