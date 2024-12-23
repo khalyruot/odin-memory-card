@@ -45,7 +45,7 @@ function App() {
 
   useEffect(() => {
     if (pokemonList.length > 0) {
-      console.log(pokemonList[0].id); // Access the id of the first Pokémon after it's load
+      console.log(pokemonList[0].id); // Access the id of the first Pokémon after it's loaded
     }
   }, [pokemonList]);
 
