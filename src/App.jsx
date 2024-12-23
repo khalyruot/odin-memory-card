@@ -20,7 +20,6 @@ function App() {
     fetchData();
   }, []);
   
-  
 
   const handleClick = (pokemonId) => {
     setPokemonList(prevList=>{
@@ -44,7 +43,11 @@ function App() {
     
   }
 
-  console.log(pokemonList);
+  useEffect(() => {
+    if (pokemonList.length > 0) {
+      console.log(pokemonList[0].id); // Access the id of the first Pokémon after it's loaded
+    }
+  }, [pokemonList]);
 
   const pokemonCards = pokemonList.map((pokemon)=>{
     return (
@@ -55,10 +58,9 @@ function App() {
        alt = "Pokemon Name"
        onClick={handleClick}/>
     )
-      
   });
 
-  console.log(pokemonCards);
+  //console.log(pokemonCards);
 
   return (
     <>
