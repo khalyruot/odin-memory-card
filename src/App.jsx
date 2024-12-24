@@ -28,11 +28,16 @@ function App() {
     setPokemonList(prevList=>{
       let clickedPokemon = [];
       for(let i = 0; i < prevList.length; i++){
-        //if(pokemonId === prevList.id){
+        if(pokemonId === prevList.id){
           clickedPokemon = prevList[i];
           console.log(clickedPokemon );
           return clickedPokemon;
-        //}
+        }
+        else{
+          clickedPokemon = prevList[i];
+          console.log(clickedPokemon );
+          return clickedPokemon;
+        }
       }
 
       console.log(pokemonList);
