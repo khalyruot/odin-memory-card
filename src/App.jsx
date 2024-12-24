@@ -24,17 +24,22 @@ function App() {
   
 
   const handleClick = (pokemonId) => {
+    console.log(pokemonId);
     setPokemonList(prevList=>{
-      let clickedPokemon;
+      let clickedPokemon = [];
       for(let i = 0; i < prevList.length; i++){
-        if(pokemonId === prevList.id){
+        //if(pokemonId === prevList.id){
           clickedPokemon = prevList[i];
-        
-          break;
-        }
+          console.log(clickedPokemon );
+          return clickedPokemon;
+        //}
       }
 
+      console.log(pokemonList);
+
       if(clickedPokemon.isClick){
+        console.log(pokemonList);
+        console.log("A");
         if(score>highScore){
           setHighScore(score);
         }
