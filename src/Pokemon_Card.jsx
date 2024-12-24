@@ -1,12 +1,9 @@
-export default function PokemonCard({id, name, image, onClick}){
+export default function PokemonCard({id, name, src, onClick}){
     return(
         <div onClick={onClick}>
-            <img
-             key={id} 
-             className = "card"
-             src ={image}
-             alt = {name}
-            />
+            <img src={src} alt={name} />
+            <h3>{name}</h3>
+            <p>{id}</p>
         </div>
     )
 }

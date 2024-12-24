@@ -14,10 +14,11 @@ async function getPokemon(){
             return{
                 id: pokemon.id,
                 name: pokemon.name,
-                image: pokemon.sprites.font_default,
+                image: pokemon.sprites.front_default,
                 isClicked: false,  
             };
         });
+        
     }
     catch(error){
         console.log("Error Fetching Data: ", error);
@@ -52,6 +53,7 @@ function shuffleRandomPokemon(pokemonList){
     }
     
     console.log(shuffledRandomPokemons);
+    console.log(pokemonList);
 
     return shuffledRandomPokemons;
 }

@@ -19,7 +19,8 @@ function App() {
     };
     fetchData();
   }, []);
-  
+
+  //shuffleRandomPokemon(pokemonId);
   
 
   const handleClick = (pokemonId) => {
@@ -28,6 +29,7 @@ function App() {
       for(let i = 0; i < prevList.length; i++){
         if(pokemonId === prevList.id){
           clickedPokemon = prevList[i];
+        
           break;
         }
       }
@@ -46,7 +48,7 @@ function App() {
 
   useEffect(() => {
     if (pokemonList.length > 0) {
-      console.log(pokemonList[0].id); // Access the id of the first Pokémon after it's loaded
+      console.log(pokemonList); // Access the id of the first Pokémon after it's loaded
     }
   }, [pokemonList]);
 
@@ -56,13 +58,10 @@ function App() {
        key={pokemon.id} 
        name = {pokemon.name}
        src ={pokemon.image}
-       alt = "Pokemon Name"
        onClick={()=>handleClick(pokemon.id)}/>
     )
     
   });
-
-  console.log(pokemonCards);
 
   return (
     <>
