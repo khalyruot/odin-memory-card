@@ -34,9 +34,8 @@ function App() {
         }
        
       }
-
-      console.log(clickedPokemon);
-
+      console.log(pokemonId);
+      
       if(clickedPokemon.isClick){
         console.log(pokemonList);
         console.log("A");
@@ -46,6 +45,17 @@ function App() {
 
         setHighScore(0);
       }
+
+      console.log(prevList);
+      const updatedList = prevList.map((pokemon)=>{
+        if(pokemon.id == pokemonId){
+          pokemon.isClicked = true;
+        }
+        return pokemon;
+      })
+      setScore(prevScore => prevScore + 10);
+      
+      return shuffleRandomPokemon(updatedList);
      
     })
     
@@ -56,6 +66,10 @@ function App() {
       console.log(pokemonList); // Access the id of the first Pokémon after it's loaded
     }
   }, [pokemonList]);
+
+  console.log(pokemonList);
+
+  
 
   const pokemonCards = pokemonList.map((pokemon)=>{
     return (
