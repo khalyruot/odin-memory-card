@@ -33,8 +33,8 @@ function App() {
       }
       console.log(clickedPokemon);
       
-      if(clickedPokemon.isClick){
-        console.log(pokemonList);
+      if(clickedPokemon.isClicked){
+        console.log("HEY!!");
       
         if(score>highScore){
           setHighScore(score);
