@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import FetchData from './FetchData'
 import { getPokemon, getRandomPokemon, shuffleRandomPokemon } from './FetchDataJavascript'
 import './App.css'
 import Pokemon_Card from './Pokemon_Card'
@@ -30,27 +27,28 @@ function App() {
       for(let i = 0; i < prevList.length; i++){
         if(pokemonId === prevList[i].id){
           clickedPokemon = prevList[i];
-          break; 
+          //break; 
         }
        
       }
-      console.log(pokemonId);
+      console.log(clickedPokemon);
       
       if(clickedPokemon.isClick){
         console.log(pokemonList);
-        console.log("A");
+      
         if(score>highScore){
           setHighScore(score);
         }
 
         setHighScore(0);
       }
-
-      console.log(prevList);
+      console.log("A");
+      console.log("score: " + score);
+      console.log("highScore: " + highScore);
       const updatedList = prevList.map((pokemon)=>{
-        if(pokemon.id == pokemonId){
-          pokemon.isClicked = true;
-        }
+        //if(pokemon.id == pokemonId){
+          //pokemon.isClicked = true;
+        //}
         return pokemon;
       })
       setScore(prevScore => prevScore + 10);
