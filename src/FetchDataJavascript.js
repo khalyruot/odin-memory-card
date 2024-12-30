@@ -36,8 +36,7 @@ function getRandomPokemon(){
         pokemonIds.add(Math.floor(Math.random() * total_Pokemon) + 1);
     }
 
-    console.log(pokemonIds);
-
+  
     return Array.from(pokemonIds);
 
 }
@@ -51,9 +50,7 @@ function shuffleRandomPokemon(pokemonList){
             shuffledRandomPokemons[i]
         ];
     }
-    
-    console.log(shuffledRandomPokemons);
-    console.log(pokemonList);
+   
 
     return shuffledRandomPokemons;
 }

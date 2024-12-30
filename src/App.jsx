@@ -17,34 +17,36 @@ function App() {
     fetchData();
   }, []);
 
-  //shuffleRandomPokemon(pokemonId);
   
-
   const handleClick = (pokemonId) => {
     console.log(pokemonId);
+    
+    
     setPokemonList(prevList=>{
-      let clickedPokemon = [];
+     
+      let clickedPokemon = null;
       for(let i = 0; i < prevList.length; i++){
+        var prevPokemon = [];
         if(pokemonId === prevList[i].id){
+          console.log(prevList[i].id);
           clickedPokemon = prevList[i];
-          //break; 
+          prevPokemon.push(pokemonId);
+          console.log(prevPokemon);
         }
-       
       }
       console.log(clickedPokemon);
-      
+      console.log(clickedPokemon.isClicked);
+ 
       if(clickedPokemon.isClicked){
-        console.log("HEY!!");
-      
+        console.log(clickedPokemon);
         if(score>highScore){
           setHighScore(score);
         }
 
         setHighScore(0);
       }
-      console.log("A");
-      console.log("score: " + score);
-      console.log("highScore: " + highScore);
+      
+    
       const updatedList = prevList.map((pokemon)=>{
         //if(pokemon.id == pokemonId){
           //pokemon.isClicked = true;
@@ -64,8 +66,6 @@ function App() {
       console.log(pokemonList); // Access the id of the first Pokémon after it's loaded
     }
   }, [pokemonList]);
-
-  console.log(pokemonList);
 
   
 
