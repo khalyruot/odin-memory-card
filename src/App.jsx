@@ -19,9 +19,7 @@ function App() {
 
   
   const handleClick = (pokemonId) => {
-    console.log(pokemonId);
-    
-    
+    console.log("A");
     setPokemonList(prevList=>{
      
       let clickedPokemon = null;
