@@ -19,30 +19,37 @@ function App() {
 
   
   const handleClick = (pokemonId) => {
-    console.log("A");
+    console.log(pokemonList);
+    
+    
     setPokemonList(prevList=>{
-     
+      console.log(prevList);
       let clickedPokemon = null;
       for(let i = 0; i < prevList.length; i++){
-        var prevPokemon = [];
+
         if(pokemonId === prevList[i].id){
-          console.log(prevList[i].id);
           clickedPokemon = prevList[i];
-          prevPokemon.push(pokemonId);
-          console.log(prevPokemon);
+
+          if(clickedPokemon.isClicked){
+            console.log(clickedPokemon);
+            if(score>highScore){
+              setHighScore(score);
+            }
+    
+            setHighScore(0);
+            
+          }
+
+          else{
+            clickedPokemon.isClicked = true;
+          }
+          
+
         }
       }
       console.log(clickedPokemon);
       console.log(clickedPokemon.isClicked);
  
-      if(clickedPokemon.isClicked){
-        console.log(clickedPokemon);
-        if(score>highScore){
-          setHighScore(score);
-        }
-
-        setHighScore(0);
-      }
       
     
       const updatedList = prevList.map((pokemon)=>{
