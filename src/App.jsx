@@ -19,16 +19,16 @@ function App() {
 
   
   const handleClick = (pokemonId) => {
-    console.log(pokemonList);
-    
-    
+ 
     setPokemonList(prevList=>{
-      console.log(prevList);
       let clickedPokemon = null;
       for(let i = 0; i < prevList.length; i++){
 
         if(pokemonId === prevList[i].id){
           clickedPokemon = prevList[i];
+
+        }
+        console.log(clickedPokemon);
 
           if(clickedPokemon.isClicked){
             console.log(clickedPokemon);
@@ -46,7 +46,7 @@ function App() {
           
 
         }
-      }
+      
       console.log(clickedPokemon);
       console.log(clickedPokemon.isClicked);
  
