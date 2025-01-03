@@ -8,6 +8,7 @@ function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [selectPokemonId, setSelectPokemonId] = useState(null);
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -19,37 +20,42 @@ function App() {
 
   
   const handleClick = (pokemonId) => {
+
+    console.log(pokemonId);
+
+    setSelectPokemonId(pokemonId);
+    
  
     setPokemonList(prevList=>{
-      let clickedPokemon = null;
-      for(let i = 0; i < prevList.length; i++){
 
+      let clickedPokemon = null;
+      
+      for(let i = 0; i < prevList.length; i++){
+        console.log(prevList[i].id);
         if(pokemonId === prevList[i].id){
           clickedPokemon = prevList[i];
+          pokemonId = clickedPokemon.id;
+          console.log(pokemonId);
+          break;
 
         }
-        console.log(clickedPokemon);
 
-          if(clickedPokemon.isClicked){
-            console.log(clickedPokemon);
+          /*if(clickedPokemon.isClicked){
             if(score>highScore){
               setHighScore(score);
             }
     
             setHighScore(0);
             
-          }
+          }*/
 
-          else{
-            clickedPokemon.isClicked = true;
-          }
+          //else{
+            //clickedPokemon.isClicked = true;
+          //}
           
 
-        }
-      
-      console.log(clickedPokemon);
-      console.log(clickedPokemon.isClicked);
- 
+      }
+    
       
     
       const updatedList = prevList.map((pokemon)=>{
