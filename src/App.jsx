@@ -8,7 +8,6 @@ function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [selectPokemonId, setSelectPokemonId] = useState(null);
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -22,42 +21,24 @@ function App() {
   const handleClick = (pokemonId) => {
 
     console.log(pokemonId);
-
-    setSelectPokemonId(pokemonId);
     
  
     setPokemonList(prevList=>{
 
-      let clickedPokemon = null;
-      
-      for(let i = 0; i < prevList.length; i++){
-        console.log(prevList[i].id);
-        if(pokemonId === prevList[i].id){
-          clickedPokemon = prevList[i];
-          pokemonId = clickedPokemon.id;
-          console.log(pokemonId);
-          break;
+      const clickedPokemon = prevList.find((pokemon)=>pokemon.id === pokemonId);
 
-        }
+      console.log(clickedPokemon.isClicked);
 
-          /*if(clickedPokemon.isClicked){
+          if(clickedPokemon.isClicked){
             if(score>highScore){
               setHighScore(score);
             }
     
             setHighScore(0);
             
-          }*/
-
-          //else{
-            //clickedPokemon.isClicked = true;
-          //}
-          
-
-      }
-    
-      
-    
+          }
+        
+        
       const updatedList = prevList.map((pokemon)=>{
         //if(pokemon.id == pokemonId){
           //pokemon.isClicked = true;
@@ -67,10 +48,11 @@ function App() {
       setScore(prevScore => prevScore + 10);
       
       return shuffleRandomPokemon(updatedList);
-     
-    })
-    
-  }
+        
+  })
+}
+
+ 
 
   useEffect(() => {
     if (pokemonList.length > 0) {
@@ -107,4 +89,5 @@ function App() {
   )
 }
 
-export default App
+
+export default App;
