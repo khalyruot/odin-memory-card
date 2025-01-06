@@ -39,12 +39,7 @@ function App() {
           }
         
         
-      const updatedList = prevList.map((pokemon)=>{
-        //if(pokemon.id == pokemonId){
-          //pokemon.isClicked = true;
-        //}
-        return pokemon;
-      })
+      const updatedList = prevList.map((pokemon)=>pokemon.id === pokemonId ? {...pokemon, isClicked: true}:pokemon);
       setScore(prevScore => prevScore + 10);
       
       return shuffleRandomPokemon(updatedList);
@@ -54,11 +49,11 @@ function App() {
 
  
 
-  useEffect(() => {
-    if (pokemonList.length > 0) {
-      console.log(pokemonList); // Access the id of the first Pokémon after it's loaded
-    }
-  }, [pokemonList]);
+useEffect(() => {
+  if (pokemonList.length > 0) {
+    console.log(pokemonList); // Access the id of the first Pokémon after it's loaded
+  }
+}, [pokemonList]);
 
   
 
