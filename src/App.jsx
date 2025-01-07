@@ -29,14 +29,15 @@ function App() {
 
       console.log(clickedPokemon.isClicked);
 
-          if(clickedPokemon.isClicked){
-            if(score>highScore){
-              setHighScore(score);
-            }
-    
-            setHighScore(0);
-            
-          }
+      if(clickedPokemon.isClicked){
+        if(score>highScore){
+          setHighScore(score);
+        }
+
+        const resetList = prevList.map((pokemon)=> ({...pokemon, isClicked:false}));
+        setScore(0);
+        return resetList;
+      }
         
         
       const updatedList = prevList.map((pokemon)=>pokemon.id === pokemonId ? {...pokemon, isClicked: true}:pokemon);
@@ -74,8 +75,8 @@ useEffect(() => {
         <div id="top">
           <div><h1>Memory Game</h1></div>
           <div>
-            <h2>Score:</h2>
-            <h2>Top Score</h2>
+            <h2>Score: {score}</h2>
+            <h2>Top Score: {highScore}</h2>
           </div>
         </div>
         <div id="body">{pokemonCards}</div>
