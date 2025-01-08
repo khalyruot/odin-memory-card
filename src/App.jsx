@@ -8,6 +8,7 @@ function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [winninText, setWinningText] = useState("");
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -32,9 +33,13 @@ function App() {
       if(clickedPokemon.isClicked){
         if(score>highScore){
           setHighScore(score);
+          setWinningText("You Won!");
         }
 
         const resetList = prevList.map((pokemon)=> ({...pokemon, isClicked:false}));
+        if(score<highScore){
+          setWinningText("A");
+        }
         setScore(0);
         return resetList;
       }
@@ -77,6 +82,7 @@ useEffect(() => {
           <div>
             <h2>Score: {score}</h2>
             <h2>Top Score: {highScore}</h2>
+            <h2>{winninText}</h2>
           </div>
         </div>
         <div id="body">{pokemonCards}</div>
