@@ -33,15 +33,15 @@ function App() {
       if(clickedPokemon.isClicked){
         if(score>highScore){
           setHighScore(score);
-          setWinningText("You Won!");
+          setWinningText("You Won, click on pokemon to continue!");
         }
 
         const resetList = prevList.map((pokemon)=> ({...pokemon, isClicked:false}));
-        if(score<highScore){
-          setWinningText("A");
-        }
         setScore(0);
         return resetList;
+      }
+      else{
+        setWinningText("");
       }
         
         
